@@ -38,10 +38,10 @@ public class DataInterface {
                 SwingUtilities.invokeLater(DataInterface::createUpdateGUI);
             }
         });
-        updateButton.addActionListener(new ActionListener() {
+        deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                SwingUtilities.invokeLater(DataInterface::createDeleteGUI);
             }
         });
     }
@@ -57,7 +57,7 @@ public class DataInterface {
 
     private void showData() {
         try {
-            Object[] columnTitle = {"Data Siswa", "Nis", "Nama", "Kelas"};
+            Object[] columnTitle = {"Id Siswa", "Nis", "Nama", "Kelas"};
             tableModel = new DefaultTableModel(null,columnTitle);
             jTable.setModel(tableModel);
 
@@ -87,6 +87,18 @@ public class DataInterface {
         JFrame jFrame = new JFrame();
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setContentPane(updateRoot);
+        jFrame.pack();
+        jFrame.setLocationRelativeTo(null);
+        jFrame.setVisible(true);
+    }
+
+    private static void createDeleteGUI(){
+        DeletePanel deleteUI = new DeletePanel();
+        JPanel deleteRoot = deleteUI.getDeletePanel();
+
+        JFrame jFrame = new JFrame();
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setContentPane(deleteRoot);
         jFrame.pack();
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
