@@ -1,4 +1,4 @@
-package com.crud.statistic;
+package com.crud.siswa;
 
 import javax.swing.*;
 import java.awt.*;
